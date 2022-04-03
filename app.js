@@ -17,6 +17,17 @@ form.addEventListener('submit', e => {
     }
   })
  //show results
-  result.querySelector('span').innerHTML = `${score}%`
+  
   result.classList.remove('d-none')
+
+  let output = 0
+  const timer = setInterval(() => {
+    result.querySelector('span').innerHTML = `${output}%`
+    if (output === score) {
+      clearInterval(timer)
+    } else {
+      output++
+    }
+  }, 10)
+
 })
